@@ -1,0 +1,23 @@
+To fix this issue, ensure that the more specific selector (`#container .box`) is correctly applied by adjusting the order of CSS rules or by increasing its specificity. Here's one approach:
+
+```css
+#container {
+  width: 500px;
+  height: 300px;
+  background-color: lightblue;
+}
+
+/* Increased Specificity using !important or more specific selector*/
+#container .box {
+  width: 100px;
+  height: 100px;
+  background-color: lightgreen !important;
+}
+
+.box {
+  width: 200px;
+  height: 200px;
+  background-color: yellow;
+}
+```
+By adding `!important`, we force the browser to apply the rule even with specificity conflicts.  It is generally not recommended to overuse this but here it helps illustrate the solution. Another solution would be to make the selector even more specific such as `#container > .box` which targets only direct children.  Carefully consider how you structure your CSS to avoid similar specificity issues in the future.
